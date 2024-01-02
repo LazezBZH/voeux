@@ -195,3 +195,34 @@ function init() {
   ctx3.textAlign = "right";
   ctx3.fillText(signText, 295, 140);
 }
+
+const downloadBtn = document.querySelector(".download-btn");
+downloadBtn.addEventListener("click", saveImage);
+
+function downloadImg() {
+  const dataURL = canvas.toDataURL("image/jpeg", 1.0);
+  console.log(dataURL);
+}
+
+function saveImage() {
+  const nomFile = "image.jpeg";
+
+  let dataImage;
+
+  const lien = document.createElement("a");
+
+  // récup. des data de l'image
+  dataImage = canvas.toDataURL("image/jpeg", 1.0);
+  // affectation d'un nom à l'image
+  lien.download = nomFile;
+  // modifie le type de données
+  dataImage = dataImage.replace("image/jpeg", "image/octet-stream");
+  // affectation de l'adresse
+  lien.href = dataImage;
+  // ajout de l'élément
+  document.body.appendChild(lien);
+  // simulation du click
+  lien.click();
+  // suppression de l'élément devenu inutile
+  document.body.removeChild(lien);
+}
