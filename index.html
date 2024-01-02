@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de carte de voeux</title>
+    <link rel='stylesheet' href='style.css'>
+    <link rel="stylesheet" href="colorpicker/coloris.min.css"/>
+</head>
+<body>
+    <section class="colors-inputs">
+        <label for="input-bg">Fond
+        <input id="input-bg" type="text" data-coloris value="#ff0000">
+        </label>
+        <label for="input-year">Année
+        <input id="input-year" type="text" data-coloris value="#ffff00">
+        </label>
+        <label for="input-line1">Ligne 1
+        <input id="input-line1" type="text" data-coloris value="#36d4f7">
+        </label>
+        <label for="input-line2">Ligne 2
+        <input id="input-line2" type="text" data-coloris value="#1859a8">
+        </label>
+        <label for="input-line3">Ligne 3
+        <input id="input-line3" type="text" data-coloris value="#0d14de">
+        </label>
+        <label for="input-line4">Ligne 4
+        <input id="input-line4" type="text" data-coloris value="#7517d4">
+        </label>
+        <label for="input-sign">Signature
+        <input id="input-sign" type="text" data-coloris value="#024f0f">
+        </label>
+    </section>
+
+    <canvas id='canvas'></canvas>
+    
+    <section id="pictures">
+
+    </section>
+    <div style='display:none;'>
+        <img id='sunset' src='assets/8.jpg'>
+    </div>
+
+    <script src="colorpicker/coloris.min.js"></script>
+    <script src='script.js' async></script>
+
+      
+</body>
+</html>

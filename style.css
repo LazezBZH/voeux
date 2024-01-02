@@ -1,0 +1,43 @@
+body {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+#canvas {
+  width: 60vw;
+  max-width: 720px;
+  height: 30vw;
+  max-height: 360px;
+  /* position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%); */
+}
+.colors-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.colors-inputs label {
+  display: flex;
+  justify-content: right;
+  gap: 1.5rem;
+  /* margin: 1rem auto; */
+}
+#pictures {
+  width: 16vw;
+  max-width: 300px;
+  height: 43vw;
+  max-height: 810px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.picture {
+  width: 7vw;
+  max-width: 140px;
+  height: 7vw;
+  max-height: 140px;
+  cursor: pointer;
+}
