@@ -1,19 +1,53 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+header {
+  width: 100dvw;
+  height: 15dvh;
+  position: fixed;
+  top: 0;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1dvh;
+  text-align: center;
+  padding: 0 1rem;
+}
 body {
   display: flex;
   gap: 2rem;
   justify-content: center;
   align-items: center;
   margin: 2rem auto;
+  flex-wrap: wrap;
+  padding-top: 15dvh;
+}
+.center {
+  height: 100vw;
+  max-height: 600px;
+  display: flex;
+  position: relative;
 }
 #canvas {
   width: 60vw;
   max-width: 720px;
   height: 30vw;
   max-height: 360px;
-  /* position: absolute;
+  position: absolute;
   left: 50%;
-  top: 10%;
-  transform: translateX(-50%); */
+  bottom: 10%;
+  transform: translateX(-50%);
 }
 .colors-inputs {
   display: flex;
@@ -51,11 +85,12 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  gap: 0.2rem;
+  margin: 2rem 1rem 0.5rem 1rem;
 }
-.center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+.download-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
 }
