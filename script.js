@@ -1,5 +1,5 @@
 const canvas = document.getElementById("canvas");
-const ctx3 = canvas.getContext("2d");
+const ctx = canvas.getContext("2d");
 
 let bgInput = document.getElementById("input-bg");
 let yearInput = document.getElementById("input-year");
@@ -49,7 +49,7 @@ const pictures = document.getElementById("pictures");
 window.addEventListener("load", showPictures);
 
 function showPicture() {
-  changeColor();
+  changCanvas();
 }
 function showPictures() {
   for (let i = 1; i <= 10; i++) {
@@ -68,132 +68,134 @@ function showPictures() {
 
 function changeBgColor(e) {
   bgColor = e.target.value;
-  canvas.style.backgroundColor = bgColor;
+  changCanvas();
 }
 
 function setTexts() {
-  changeColor();
+  changCanvas();
 }
 function changeLine1Text(e) {
   line1Text = e.target.value;
-  changeColor();
+  changCanvas();
 }
 function changeLine2Text(e) {
   line2Text = e.target.value;
-  changeColor();
+  changCanvas();
 }
 function changeLine3Text(e) {
   line3Text = e.target.value;
-  changeColor();
+  changCanvas();
 }
 function changeLine4Text(e) {
   line4Text = e.target.value;
-  changeColor();
+  changCanvas();
 }
 function changeSignText(e) {
   signText = e.target.value;
-  changeColor();
+  changCanvas();
 }
 
 function changeYearColor(e) {
   yearColor = e.target.value;
-  changeColor();
+  changCanvas();
 }
 
 function changeLine1Color(e) {
   line1Color = e.target.value;
-  changeColor();
+  changCanvas();
 }
 function changeLine2Color(e) {
   line2Color = e.target.value;
-  changeColor();
+  changCanvas();
 }
 function changeLine3Color(e) {
   line3Color = e.target.value;
-  changeColor();
+  changCanvas();
 }
 function changeLine4Color(e) {
   line4Color = e.target.value;
-  changeColor();
+  changCanvas();
 }
 function changeSignColor(e) {
   signColor = e.target.value;
-  changeColor();
+  changCanvas();
 }
-function changeColor() {
-  ctx3.clearRect(0, 0, canvas.width, canvas.height);
+function changCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = bgColor;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx3.rotate(-0.75);
-  ctx3.font = "bold 20px Verdana, Arial, serif";
-  ctx3.strokeStyle = yearColor;
-  ctx3.strokeText("2024", 32, 50);
-  ctx3.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.rotate(-0.75);
+  ctx.font = "bold 20px Verdana, Arial, serif";
+  ctx.strokeStyle = yearColor;
+  ctx.strokeText("2024", 32, 50);
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
 
-  ctx3.font = "bold 15px Verdana, Arial, serif";
-  ctx3.fillStyle = line1Color;
-  ctx3.textAlign = "center";
-  ctx3.fillText(line1Text, 130, 50);
+  ctx.font = "bold 15px Verdana, Arial, serif";
+  ctx.fillStyle = line1Color;
+  ctx.textAlign = "center";
+  ctx.fillText(line1Text, 130, 50);
 
-  ctx3.font = "bold 10px Verdana, Arial, serif";
-  ctx3.fillStyle = line2Color;
-  ctx3.textAlign = "right";
-  ctx3.fillText(line2Text, 210, 80);
+  ctx.font = "bold 10px Verdana, Arial, serif";
+  ctx.fillStyle = line2Color;
+  ctx.textAlign = "right";
+  ctx.fillText(line2Text, 210, 80);
   // max 25
-  ctx3.font = "bold 10px Verdana, Arial, serif";
-  ctx3.fillStyle = line3Color;
-  ctx3.textAlign = "center";
-  ctx3.fillText(line3Text, 150, 100);
+  ctx.font = "bold 10px Verdana, Arial, serif";
+  ctx.fillStyle = line3Color;
+  ctx.textAlign = "center";
+  ctx.fillText(line3Text, 150, 100);
   // max 35
-  ctx3.font = "bold 10px Verdana, Arial, serif";
-  ctx3.fillStyle = line4Color;
-  ctx3.textAlign = "center";
-  ctx3.fillText(line4Text, 150, 120);
+  ctx.font = "bold 10px Verdana, Arial, serif";
+  ctx.fillStyle = line4Color;
+  ctx.textAlign = "center";
+  ctx.fillText(line4Text, 150, 120);
   // max 35
 
-  ctx3.font = "bold 18px Verdana, Arial, serif";
-  ctx3.fillStyle = signColor;
-  ctx3.textAlign = "right";
-  ctx3.fillText(signText, 295, 140);
+  ctx.font = "bold 18px Verdana, Arial, serif";
+  ctx.fillStyle = signColor;
+  ctx.textAlign = "right";
+  ctx.fillText(signText, 295, 140);
 
   if (picture) {
-    ctx3.drawImage(picture, 215, 5, 80, 80);
+    ctx.drawImage(picture, 215, 5, 80, 80);
   }
 }
 function init() {
-  canvas.style.backgroundColor = bgColor;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = bgColor;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx3.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.rotate(-0.75);
+  ctx.font = "bold 20px Verdana, Arial, serif";
+  ctx.strokeStyle = yearColor;
+  ctx.strokeText("2024", -25, 50);
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
 
-  ctx3.rotate(-0.75);
-  ctx3.font = "bold 20px Verdana, Arial, serif";
-  ctx3.strokeStyle = yearColor;
-  ctx3.strokeText("2024", -25, 50);
-  ctx3.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.font = "bold 15px Verdana, Arial, serif";
+  ctx.fillStyle = line1Color;
+  ctx.textAlign = "center";
+  ctx.fillText(line1Text, 130, 50);
 
-  ctx3.font = "bold 15px Verdana, Arial, serif";
-  ctx3.fillStyle = line1Color;
-  ctx3.textAlign = "center";
-  ctx3.fillText(line1Text, 130, 50);
-
-  ctx3.font = "bold 10px Verdana, Arial, serif";
-  ctx3.fillStyle = line2Color;
-  ctx3.textAlign = "right";
-  ctx3.fillText(line2Text, 210, 80);
+  ctx.font = "bold 10px Verdana, Arial, serif";
+  ctx.fillStyle = line2Color;
+  ctx.textAlign = "right";
+  ctx.fillText(line2Text, 210, 80);
   // max 25
-  ctx3.font = "bold 10px Verdana, Arial, serif";
-  ctx3.fillStyle = line3Color;
-  ctx3.textAlign = "center";
-  ctx3.fillText(line3Text, 150, 100);
+  ctx.font = "bold 10px Verdana, Arial, serif";
+  ctx.fillStyle = line3Color;
+  ctx.textAlign = "center";
+  ctx.fillText(line3Text, 150, 100);
   // max 35
-  ctx3.font = "bold 10px Verdana, Arial, serif";
-  ctx3.fillStyle = line4Color;
-  ctx3.textAlign = "center";
-  ctx3.fillText(line4Text, 150, 120);
+  ctx.font = "bold 10px Verdana, Arial, serif";
+  ctx.fillStyle = line4Color;
+  ctx.textAlign = "center";
+  ctx.fillText(line4Text, 150, 120);
   // max 35
-  ctx3.font = "bold 18px Verdana, Arial, serif";
-  ctx3.fillStyle = signColor;
-  ctx3.textAlign = "right";
-  ctx3.fillText(signText, 295, 140);
+  ctx.font = "bold 18px Verdana, Arial, serif";
+  ctx.fillStyle = signColor;
+  ctx.textAlign = "right";
+  ctx.fillText(signText, 295, 140);
 }
 
 const downloadBtn = document.querySelector(".download-btn");
