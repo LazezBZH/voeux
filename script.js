@@ -13,19 +13,20 @@ let line4Input = document.getElementById("input-line4");
 let line4TextInput = document.getElementById("text-line4");
 let signInput = document.getElementById("input-sign");
 let signTextInput = document.getElementById("text-sign");
+const pictureInit = document.querySelector(".pictureInit");
 
 let bgColor = bgInput.value;
 let yearColor = yearInput.value;
 let line1Color = line1Input.value;
-let line1Text = "";
+let line1Text = line1TextInput.value || "Titre";
 let line2Color = line2Input.value;
-let line2Text = "";
+let line2Text = line2TextInput.value || "Ligne 2";
 let line3Color = line3Input.value;
-let line3Text = "";
+let line3Text = line3TextInput.value || "Ligne 3";
 let line4Color = line4Input.value;
-let line4Text = "";
+let line4Text = line4TextInput.value || "Ligne 4";
 let signColor = signInput.value;
-let signText = "";
+let signText = signTextInput.value || "Signature";
 let picture = "";
 
 bgInput.addEventListener("input", changeBgColor);
@@ -196,6 +197,8 @@ function init() {
   ctx.fillStyle = signColor;
   ctx.textAlign = "right";
   ctx.fillText(signText, 295, 140);
+
+  ctx.drawImage(pictureInit, 215, 5, 80, 80);
 }
 
 const downloadBtn = document.querySelector(".download-btn");
