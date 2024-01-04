@@ -1,19 +1,23 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-let bgInput = document.getElementById("input-bg");
-let yearInput = document.getElementById("input-year");
-let line1Input = document.getElementById("input-line1");
-let line1TextInput = document.getElementById("title");
-let line2Input = document.getElementById("input-line2");
-let line2TextInput = document.getElementById("text-line2");
-let line3Input = document.getElementById("input-line3");
-let line3TextInput = document.getElementById("text-line3");
-let line4Input = document.getElementById("input-line4");
-let line4TextInput = document.getElementById("text-line4");
-let signInput = document.getElementById("input-sign");
-let signTextInput = document.getElementById("text-sign");
+canvas.width = 720;
+canvas.height = 360;
+
+const bgInput = document.getElementById("input-bg");
+const yearInput = document.getElementById("input-year");
+const line1Input = document.getElementById("input-line1");
+const line1TextInput = document.getElementById("title");
+const line2Input = document.getElementById("input-line2");
+const line2TextInput = document.getElementById("text-line2");
+const line3Input = document.getElementById("input-line3");
+const line3TextInput = document.getElementById("text-line3");
+const line4Input = document.getElementById("input-line4");
+const line4TextInput = document.getElementById("text-line4");
+const signInput = document.getElementById("input-sign");
+const signTextInput = document.getElementById("text-sign");
 const pictureInit = document.querySelector(".pictureInit");
+const pictures = document.getElementById("pictures");
 
 let bgColor = bgInput.value;
 let yearColor = yearInput.value;
@@ -41,17 +45,16 @@ line2TextInput.addEventListener("input", changeLine2Text);
 line3TextInput.addEventListener("input", changeLine3Text);
 line4TextInput.addEventListener("input", changeLine4Text);
 signTextInput.addEventListener("input", changeSignText);
+
 window.addEventListener("click", setTexts);
-
 window.addEventListener("load", init);
-
-const pictures = document.getElementById("pictures");
-
 window.addEventListener("load", showPictures);
 
+// generate and choice pictures
 function showPicture() {
-  changCanvas();
+  changeCanvas();
 }
+
 function showPictures() {
   for (let i = 1; i <= 10; i++) {
     pictures.innerHTML += `<img class="picture" src='assets/` + i + `.jpg'>`;
@@ -67,167 +70,174 @@ function showPictures() {
   });
 }
 
-function changeBgColor(e) {
-  bgColor = e.target.value;
-  changCanvas();
+// write textes
+function setTexts() {
+  changeCanvas();
 }
 
-function setTexts() {
-  changCanvas();
-}
 function changeLine1Text(e) {
   line1Text = e.target.value;
-  changCanvas();
+  changeCanvas();
 }
+
 function changeLine2Text(e) {
   line2Text = e.target.value;
-  changCanvas();
+  changeCanvas();
 }
 function changeLine3Text(e) {
   line3Text = e.target.value;
-  changCanvas();
+  changeCanvas();
 }
+
 function changeLine4Text(e) {
   line4Text = e.target.value;
-  changCanvas();
+  changeCanvas();
 }
+
 function changeSignText(e) {
   signText = e.target.value;
-  changCanvas();
+  changeCanvas();
+}
+
+// change colors
+function changeBgColor(e) {
+  bgColor = e.target.value;
+  changeCanvas();
 }
 
 function changeYearColor(e) {
   yearColor = e.target.value;
-  changCanvas();
+  changeCanvas();
 }
 
 function changeLine1Color(e) {
   line1Color = e.target.value;
-  changCanvas();
+  changeCanvas();
 }
+
 function changeLine2Color(e) {
   line2Color = e.target.value;
-  changCanvas();
+  changeCanvas();
 }
+
 function changeLine3Color(e) {
   line3Color = e.target.value;
-  changCanvas();
+  changeCanvas();
 }
+
 function changeLine4Color(e) {
   line4Color = e.target.value;
-  changCanvas();
+  changeCanvas();
 }
+
 function changeSignColor(e) {
   signColor = e.target.value;
-  changCanvas();
+  changeCanvas();
 }
-function changCanvas() {
+
+// main function to personnalize canvas
+function changeCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = bgColor;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.rotate(-0.75);
-  ctx.font = "bold 20px Verdana, Arial, serif";
+  ctx.font = "bold 40px Verdana, Arial, serif";
   ctx.strokeStyle = yearColor;
-  ctx.strokeText("2024", 32, 50);
+  ctx.strokeText("2024", 64, 100);
   ctx.setTransform(1, 0, 0, 1, 0, 0);
 
-  ctx.font = "bold 15px Verdana, Arial, serif";
+  ctx.font = "bold 40px Verdana, Arial, serif";
   ctx.fillStyle = line1Color;
   ctx.textAlign = "center";
-  ctx.fillText(line1Text, 130, 50);
+  ctx.fillText(line1Text, 320, 100);
 
-  ctx.font = "bold 10px Verdana, Arial, serif";
+  ctx.font = "bold 24px Verdana, Arial, serif";
   ctx.fillStyle = line2Color;
   ctx.textAlign = "right";
-  ctx.fillText(line2Text, 210, 80);
-  // max 25
-  ctx.font = "bold 10px Verdana, Arial, serif";
+  ctx.fillText(line2Text, 520, 160);
+
+  ctx.font = "bold 20px Verdana, Arial, serif";
   ctx.fillStyle = line3Color;
   ctx.textAlign = "center";
-  ctx.fillText(line3Text, 150, 100);
-  // max 35
-  ctx.font = "bold 10px Verdana, Arial, serif";
+  ctx.fillText(line3Text, 360, 230);
+
+  ctx.font = "bold 20px Verdana, Arial, serif";
   ctx.fillStyle = line4Color;
   ctx.textAlign = "center";
-  ctx.fillText(line4Text, 150, 120);
-  // max 35
+  ctx.fillText(line4Text, 360, 280);
 
-  ctx.font = "bold 18px Verdana, Arial, serif";
+  ctx.font = "bold 24px Verdana, Arial, serif";
   ctx.fillStyle = signColor;
   ctx.textAlign = "right";
-  ctx.fillText(signText, 295, 140);
+  ctx.fillText(signText, 700, 340);
 
   if (picture) {
-    ctx.drawImage(picture, 215, 5, 80, 80);
-  }
+    ctx.drawImage(picture, 550, 10, 160, 160);
+  } else ctx.drawImage(pictureInit, 550, 10, 160, 160);
 }
+
+// init canvas model
 function init() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = bgColor;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.rotate(-0.75);
-  ctx.font = "bold 20px Verdana, Arial, serif";
+  ctx.font = "bold 40px Verdana, Arial, serif";
   ctx.strokeStyle = yearColor;
-  ctx.strokeText("2024", -25, 50);
+  ctx.strokeText("2024", -50, 100);
   ctx.setTransform(1, 0, 0, 1, 0, 0);
 
-  ctx.font = "bold 15px Verdana, Arial, serif";
+  ctx.font = "bold 40px Verdana, Arial, serif";
   ctx.fillStyle = line1Color;
   ctx.textAlign = "center";
-  ctx.fillText(line1Text, 130, 50);
+  ctx.fillText(line1Text, 320, 100);
 
-  ctx.font = "bold 10px Verdana, Arial, serif";
+  ctx.font = "bold 24px Verdana, Arial, serif";
   ctx.fillStyle = line2Color;
   ctx.textAlign = "right";
-  ctx.fillText(line2Text, 210, 80);
-  // max 25
-  ctx.font = "bold 10px Verdana, Arial, serif";
+  ctx.fillText(line2Text, 520, 160);
+
+  ctx.font = "bold 20px Verdana, Arial, serif";
   ctx.fillStyle = line3Color;
   ctx.textAlign = "center";
-  ctx.fillText(line3Text, 150, 100);
-  // max 35
-  ctx.font = "bold 10px Verdana, Arial, serif";
+  ctx.fillText(line3Text, 360, 230);
+
+  ctx.font = "bold 20px Verdana, Arial, serif";
   ctx.fillStyle = line4Color;
   ctx.textAlign = "center";
-  ctx.fillText(line4Text, 150, 120);
-  // max 35
-  ctx.font = "bold 18px Verdana, Arial, serif";
+  ctx.fillText(line4Text, 360, 280);
+
+  ctx.font = "bold 24px Verdana, Arial, serif";
   ctx.fillStyle = signColor;
   ctx.textAlign = "right";
-  ctx.fillText(signText, 295, 140);
+  ctx.fillText(signText, 700, 340);
 
-  ctx.drawImage(pictureInit, 215, 5, 80, 80);
+  ctx.drawImage(pictureInit, 550, 10, 160, 160);
 }
 
+// download generated picture
 const downloadBtn = document.querySelector(".download-btn");
 downloadBtn.addEventListener("click", saveImage);
 
-function downloadImg() {
-  const dataURL = canvas.toDataURL("image/jpeg", 1.0);
-  console.log(dataURL);
-}
-
 function saveImage() {
-  const nomFile = "image.jpeg";
-
+  const fileName = "image.jpeg";
   let dataImage;
-
-  const lien = document.createElement("a");
-
-  // récup. des data de l'image
+  // create link
+  const link = document.createElement("a");
+  // get image's data
   dataImage = canvas.toDataURL("image/jpeg", 1.0);
-  // affectation d'un nom à l'image
-  lien.download = nomFile;
-  // modifie le type de données
+  // name image
+  link.download = fileName;
+  // modify type
   dataImage = dataImage.replace("image/jpeg", "image/octet-stream");
-  // affectation de l'adresse
-  lien.href = dataImage;
-  // ajout de l'élément
-  document.body.appendChild(lien);
-  // simulation du click
-  lien.click();
-  // suppression de l'élément devenu inutile
-  document.body.removeChild(lien);
+  // set image's data to the link
+  link.href = dataImage;
+  // add picture in body
+  document.body.appendChild(link);
+  // simulate click
+  link.click();
+  // delate link
+  document.body.removeChild(link);
 }
