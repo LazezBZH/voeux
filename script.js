@@ -40,7 +40,7 @@ line2Input.addEventListener("input", changeLine2Color);
 line3Input.addEventListener("input", changeLine3Color);
 line4Input.addEventListener("input", changeLine4Color);
 signInput.addEventListener("input", changeSignColor);
-line1TextInput.addEventListener("click", changeLine1Text);
+line1TextInput.addEventListener("input", changeLine1Text);
 line2TextInput.addEventListener("input", changeLine2Text);
 line3TextInput.addEventListener("input", changeLine3Text);
 line4TextInput.addEventListener("input", changeLine4Text);
