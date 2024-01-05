@@ -18,19 +18,20 @@ const signInput = document.getElementById("input-sign");
 const signTextInput = document.getElementById("text-sign");
 const pictureInit = document.querySelector(".pictureInit");
 const pictures = document.getElementById("pictures");
+const resetBtn = document.querySelector(".reset-btn");
 
 let bgColor = bgInput.value;
 let yearColor = yearInput.value;
 let line1Color = line1Input.value;
-let line1Text = line1TextInput.value || "Titre";
+let line1Text = "Titre";
 let line2Color = line2Input.value;
-let line2Text = line2TextInput.value || "Ligne 2";
+let line2Text = "Ligne 2";
 let line3Color = line3Input.value;
-let line3Text = line3TextInput.value || "Ligne 3";
+let line3Text = "Ligne 3";
 let line4Color = line4Input.value;
-let line4Text = line4TextInput.value || "Ligne 4";
+let line4Text = "Ligne 4";
 let signColor = signInput.value;
-let signText = signTextInput.value || "Signature";
+let signText = "Signature";
 let picture = "";
 
 bgInput.addEventListener("input", changeBgColor);
@@ -41,10 +42,16 @@ line3Input.addEventListener("input", changeLine3Color);
 line4Input.addEventListener("input", changeLine4Color);
 signInput.addEventListener("input", changeSignColor);
 line1TextInput.addEventListener("input", changeLine1Text);
+line1TextInput.addEventListener("click", changeLine1Text);
 line2TextInput.addEventListener("input", changeLine2Text);
+line2TextInput.addEventListener("click", changeLine2Text);
 line3TextInput.addEventListener("input", changeLine3Text);
+line3TextInput.addEventListener("click", changeLine3Text);
 line4TextInput.addEventListener("input", changeLine4Text);
+line4TextInput.addEventListener("click", changeLine4Text);
 signTextInput.addEventListener("input", changeSignText);
+signTextInput.addEventListener("click", changeSignText);
+resetBtn.addEventListener("click", reset);
 
 window.addEventListener("click", setTexts);
 window.addEventListener("load", init);
@@ -214,7 +221,7 @@ function init() {
   ctx.textAlign = "right";
   ctx.fillText(signText, 700, 340);
 
-  ctx.drawImage(pictureInit, 550, 10, 160, 160);
+  ctx.drawImage(pictureInit, 530, 10, 180, 180);
 }
 
 // download generated picture
@@ -240,4 +247,20 @@ function saveImage() {
   link.click();
   // delate link
   document.body.removeChild(link);
+}
+
+function reset() {
+  bgColor = bgInput.defaultValue;
+  yearColor = yearInput.defaultValue;
+  line1Color = line1Input.defaultValue;
+  line1Text = "Titre";
+  line2Color = line2Input.defaultValue;
+  line2Text = "Ligne 2";
+  line3Color = line3Input.defaultValue;
+  line3Text = "Ligne 3";
+  line4Color = line4Input.defaultValue;
+  line4Text = "Ligne 4";
+  signColor = signInput.defaultValue;
+  signText = "Signature";
+  picture = "";
 }

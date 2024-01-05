@@ -17,6 +17,7 @@ body {
   margin: 2rem auto;
   flex-wrap: wrap;
   padding-top: 15dvh;
+  background-color: rgba(245, 222, 179, 0.2);
 }
 header {
   width: 100dvw;
@@ -72,11 +73,27 @@ header {
   gap: 0.2rem;
   margin: 2rem 1rem 0.5rem 1rem;
 }
-.download-btn {
+.buttons {
   position: absolute;
   left: 50%;
   bottom: 2%;
   transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+}
+.buttons button {
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: black;
+  box-shadow: rgba(255, 0, 0, 0.4) 1px 1px, rgba(255, 0, 0, 0.3) 3px 3px,
+    rgba(255, 0, 0, 0.2) 5px 5px, rgba(255, 0, 0, 0.1) 7px 7px,
+    rgba(255, 0, 0, 0.05) 9px 9px;
+}
+.download-btn {
+  color: whitesmoke;
+}
+.reset-btn {
+  color: rgb(255, 0, 0);
 }
 #pictures {
   width: 16vw;
@@ -94,4 +111,149 @@ header {
   height: 7vw;
   max-height: 140px;
   cursor: pointer;
+}
+
+/* SNOW adapté d'un tuto de Grafikart https://grafikart.fr/tutoriels/css-neige-972*/
+
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -10%;
+  overflow: hidden;
+  background-color: var(--primary);
+  z-index: -1;
+  /* min-height: 100dvh; */
+  height: 15dvh;
+}
+
+.snow__layer {
+  position: absolute;
+  left: -100px;
+  right: -100px;
+  -webkit-animation: wind 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite
+    alternate;
+  animation: wind 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+  -webkit-perspective: 100px;
+  perspective: 100px;
+  -webkit-transform: translateX(-50px);
+  -ms-transform: translateX(-50px);
+  transform: translateX(-50px);
+}
+
+.snow__fall {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2000px;
+  background: url(assets/snowWhite.svg);
+  -webkit-animation: fall 10s linear infinite;
+  animation: fall 10s linear infinite;
+}
+
+.snow__layer:nth-child(1) {
+  -webkit-animation-duration: 35s;
+  animation-duration: 35s;
+}
+
+.snow__layer:nth-child(1) .snow__fall {
+  background: url(assets/snowLowk.svg);
+  -webkit-transform: translateZ(25px);
+  transform: translateZ(25px);
+  -webkit-animation-name: fallblur;
+  animation-name: fallblur;
+  width: 4000px;
+  left: -2000px;
+}
+
+.snow__layer:nth-child(2) {
+  -webkit-animation: wind 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite
+    alternate;
+  animation: wind 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+}
+
+.snow__layer:nth-child(2) .snow__fall {
+  background: url(assets/snowGold.svg);
+  -webkit-animation-duration: 25s;
+  animation-duration: 25s;
+}
+
+.snow__fall:nth-child(3) {
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  background-size: 250px;
+}
+
+.snow__fall:nth-child(2) {
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  background-size: 500px;
+}
+
+.snow__layer:nth-child(4) .snow__fall {
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-transform: translateZ(50px);
+  transform: translateZ(50px);
+  -webkit-animation-name: falllight;
+  animation-name: falllight;
+}
+
+@-webkit-keyframes fall {
+  from {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+  }
+}
+
+@keyframes fall {
+  from {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+  }
+}
+
+@-webkit-keyframes falllight {
+  from {
+    -webkit-transform: translateY(-1000px) translateZ(50px);
+    transform: translateY(-1000px) translateZ(50px);
+  }
+}
+
+@keyframes falllight {
+  from {
+    -webkit-transform: translateY(-1000px) translateZ(50px);
+    transform: translateY(-1000px) translateZ(50px);
+  }
+}
+
+@-webkit-keyframes fallblur {
+  from {
+    -webkit-transform: translateY(-1000px) translateZ(25px);
+    transform: translateY(-1000px) translateZ(25px);
+  }
+}
+
+@keyframes fallblur {
+  from {
+    -webkit-transform: translateY(-1000px) translateZ(25px);
+    transform: translateY(-1000px) translateZ(25px);
+  }
+}
+
+@-webkit-keyframes wind {
+  to {
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+}
+
+@keyframes wind {
+  to {
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
 }

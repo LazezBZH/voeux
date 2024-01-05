@@ -11,6 +11,22 @@
     <header>
         <h1>Générateur de carte de voeux</h1>
         <p>Choisissez les couleurs, les textes et la photo et cliquez sur "Enregistrer"</p>
+        <div class="snow">
+            <div class="snow__layer">
+                <div class="snow__fall"></div>
+            </div>
+            <div class="snow__layer">
+                <div class="snow__fall"></div>
+            </div>
+            <div class="snow__layer">
+                <div class="snow__fall"></div>
+                <div class="snow__fall"></div>
+                <div class="snow__fall"></div>
+            </div>
+            <div class="snow__layer">
+                <div class="snow__fall"></div>
+            </div>
+        </div>
     </header>
     <section class="colors-inputs">
         <label for="input-bg">Fond
@@ -40,7 +56,7 @@
         <div class="texts">
             <label for="title">Titre:
                 <select name="wishes" id="title">
-                    <option value="">--Choississez--</option>
+                    <option value=" ">--Choississez--</option>
                     <option value="BONNE ANNÉE">BONNE ANNÉE</option>
                     <option value="MEILLEURS VOEUX">MEILLEURS VOEUX</option>
                     <option value="BUON ANNO">BUON ANNO</option>
@@ -67,7 +83,11 @@
             </label>
         </div>
         <canvas id='canvas'></canvas>
-        <button class="download-btn">Enregistrer</button>
+        <div class="buttons">
+            <button class="download-btn">Enregistrer</button>
+            <button class="reset-btn">Recommencer</button>
+        </div>
+        
     </section>
 
     <section id="pictures"></section>
