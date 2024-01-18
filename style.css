@@ -104,6 +104,7 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: stretch;
+  position: relative;
 }
 .picture {
   width: 7vw;
@@ -268,6 +269,20 @@ header {
   text-align: center;
   margin-top: 1rem;
 }
+.avert2 {
+  display: none;
+  width: 200px;
+  background-color: black;
+  color: whitesmoke;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 1rem;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
 footer {
   position: absolute;
   top: 5px;
@@ -278,7 +293,8 @@ footer a {
   color: whitesmoke;
 }
 @media screen and (max-width: 800px) {
-  .avert {
+  .avert,
+  .avert2 {
     display: initial;
   }
   .mask-avert {

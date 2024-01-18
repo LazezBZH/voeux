@@ -267,13 +267,16 @@ function reset() {
 
 // suppression de l'avertissement en orientation paysage
 const avert = document.querySelector(".avert");
+const avert2 = document.querySelector(".avert2");
 let portraitOrientation = window.matchMedia("(orientation:portrait)");
 window.addEventListener("orientationchange", maskAvert);
 
 function maskAvert() {
   if (portraitOrientation.matches) {
     avert.classList.add("mask-avert");
+    avert2.classList.add("mask-avert");
   } else {
     avert.classList.remove("mask-avert");
+    avert2.classList.remove("mask-avert");
   }
 }
