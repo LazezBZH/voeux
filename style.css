@@ -21,7 +21,7 @@ body {
 }
 header {
   width: 100dvw;
-  height: 15dvh;
+  height: 17dvh;
   position: fixed;
   top: 0;
   background-color: black;
@@ -32,7 +32,7 @@ header {
   justify-content: center;
   gap: 1dvh;
   text-align: center;
-  padding: 0 1rem;
+  padding: 2rem;
   z-index: 1;
 }
 .colors-inputs {
@@ -255,5 +255,23 @@ header {
   to {
     -webkit-transform: translateX(50px);
     transform: translateX(50px);
+  }
+}
+
+.avert {
+  display: none;
+  width: 320px;
+  background-color: black;
+  color: whitesmoke;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+@media screen and (max-width: 800px) {
+  .avert {
+    display: initial;
+  }
+  .mask-avert {
+    display: none;
   }
 }
